@@ -30,6 +30,7 @@ Things you may want to cover:
 
 | Column                  | Type   | Option                    |
 |-------------------------|--------|---------------------------|
+| nickname                | string | null: false               |
 | last_name               | string | null: false               |
 | first_name              | string | null: false               |
 | last_name_kana          | string | null: false               |
@@ -79,7 +80,7 @@ Things you may want to cover:
 | Column      | Type       | Option             |
 |-------------|------------|--------------------|
 | postal_code | string     | null: false        |
-| state       | string     | null: false        |
+| area_id     | integer    | null: false        |
 | town        | string     | null: false        |
 | address     | string     | null: false        |
 | building    | string     |                    |
