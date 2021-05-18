@@ -73,10 +73,10 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :buy
+- has_one :area
 
 
-## Area テーブル
+## Areas テーブル
 | Column      | Type       | Option             |
 |-------------|------------|--------------------|
 | postal_code | string     | null: false        |
@@ -84,6 +84,7 @@ Things you may want to cover:
 | town        | string     | null: false        |
 | address     | string     | null: false        |
 | building    | string     |                    |
+| tel         | integer    | null: false        |
 | buy         | references | foreign_keys: true |
 
 ### Association
