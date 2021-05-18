@@ -54,7 +54,7 @@ Things you may want to cover:
 | condition_id       | integer    | null: false        |
 | delivery_charge_id | integer    | null: false        |
 | area_id            | integer    | null: false        |
-| days_to_ship_id    | integer    | null: false        |
+| day_to_ship_id     | integer    | null: false        |
 | price              | integer    | null: false        |
 | user               | references | foreign_keys: true |
 
@@ -84,7 +84,7 @@ Things you may want to cover:
 | town        | string     | null: false        |
 | address     | string     | null: false        |
 | building    | string     |                    |
-| tel         | integer    | null: false        |
+| tel         | string     | null: false        |
 | buy         | references | foreign_keys: true |
 
 ### Association
