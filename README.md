@@ -28,13 +28,15 @@ Things you may want to cover:
 
 ## Users テーブル
 
-| Column        | Type   | Option                    |
-|---------------|--------|---------------------------|
-| nickname      | string | null: false               |
-| kana_nickname | string | null: false               |
-| email         | string | null: false, unique: true |
-| password      | string | null: false               |
-| birthday      | date   | null: false               |
+| Column                  | Type   | Option                    |
+|-------------------------|--------|---------------------------|
+| last_name               | string | null: false               |
+| first_name              | string | null: false               |
+| last_name_kana          | string | null: false               |
+| first_name_kana         | string | null: false               |
+| email                   | string | null: false, unique: true |
+| encrypted_password      | string | null: false               |
+| birthday                | date   | null: false               |
 
 ### Association
 - has_many :items
@@ -43,17 +45,17 @@ Things you may want to cover:
 
 ## Items テーブル
 
-| Column          | Type       | Option             |
-|-----------------|------------|--------------------|
-| name            | string     | null: false        |
-| content         | text       | null: false        |
-| category        | string     | null: false        |
-| condition       | text       | null: false        |
-| delivery_charge | enum       | null: false        |
-| area            | enum       | null: false        |
-| days_to_ship    | enum       | null: false        |
-| price           | integer    | null: false        |
-| user_id         | references | foreign_keys: true |
+| Column             | Type       | Option             |
+|--------------------|------------|--------------------|
+| name               | string     | null: false        |
+| content            | text       | null: false        |
+| category_id        | integer    | null: false        |
+| condition_id       | integer    | null: false        |
+| delivery_charge_id | integer    | null: false        |
+| area_id            | integer    | null: false        |
+| days_to_ship_id    | integer    | null: false        |
+| price              | integer    | null: false        |
+| user               | references | foreign_keys: true |
 
 ### Association
 - belongs_to :user
@@ -62,10 +64,10 @@ Things you may want to cover:
 
 ## Buys テーブル
 
-| Column  | Type       | Option             |
-|---------|------------|--------------------|
-| user_id | references | foreign_keys: true |
-| item_id | references | foreign_keys: true |
+| Column | Type       | Option             |
+|--------|------------|--------------------|
+| user   | references | foreign_keys: true |
+| item   | references | foreign_keys: true |
 
 ### Association
 - belongs_to :user
@@ -76,12 +78,12 @@ Things you may want to cover:
 ## Area テーブル
 | Column      | Type       | Option             |
 |-------------|------------|--------------------|
-| postal_code | integer    | null: false        |
+| postal_code | string     | null: false        |
 | state       | string     | null: false        |
 | town        | string     | null: false        |
 | address     | string     | null: false        |
 | building    | string     |                    |
-| user_id     | references | foreign_keys: true |
+| buy         | references | foreign_keys: true |
 
 ### Association
 - belongs_to :buy
