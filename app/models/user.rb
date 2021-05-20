@@ -15,8 +15,8 @@ class User < ApplicationRecord
   end
 
   with_options presence:true do
-    validates :nickname, presence: true
-    validates :birthday, presence: true
+    validates :nickname
+    validates :birthday
   end
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
