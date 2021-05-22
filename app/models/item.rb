@@ -22,7 +22,7 @@ class Item < ApplicationRecord
       validates :day_to_ship_id
     end
 
-    with_options numericality: {greater_than: 299, less_than: 10000000} do
+    with_options numericality: {greater_than: 299, less_than: 1000000} do
       validates :price
     end
 
