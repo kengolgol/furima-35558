@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :delivery_charge
-  belongs_to :area
+  belongs_to :shipping_area
   belongs_to :day_to_ship
 
   belongs_to :user
@@ -18,7 +18,7 @@ class Item < ApplicationRecord
       validates :category_id
       validates :condition_id
       validates :delivery_charge_id
-      validates :area_id
+      validates :shipping_area_id
       validates :day_to_ship_id
     end
 
