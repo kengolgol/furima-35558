@@ -10,6 +10,7 @@ class BuyArea
     validates :shipping_area_id, numericality: {other_than: 1 }
     validates :user_id
     validates :item_id
+    validates :token
   end
 
   

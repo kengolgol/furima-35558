@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :day_to_ship
 
   belongs_to :user
+  has_one :buy
 
   with_options presence: true do
     validates :name
