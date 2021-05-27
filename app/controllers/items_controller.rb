@@ -3,9 +3,8 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
   before_action :redirect_to_root, only: [:edit, :update, :destroy]
 
-
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -44,11 +43,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :content, :category_id, :condition_id, :delivery_charge_id, :area_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :content, :category_id, :condition_id, :delivery_charge_id, :shipping_area_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
   end
 
   def redirect_to_root
-    unless current_user.id == @item.user_id
+    if (current_user.id != @item.user_id) || (@item.buy != nil)
       redirect_to root_path
     end
   end
