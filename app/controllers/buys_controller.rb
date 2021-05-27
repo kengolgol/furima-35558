@@ -35,9 +35,11 @@ class BuysController < ApplicationController
   end
 
   def sold_item
-    buy = Buy.find(params[:item_id])
-    if user_signed_in? && @item.id == buy.item_id
-      redirect_to root_path
+    if @item.buy != nil
+      binding.pry
+      if user_signed_in? && @item.id == params[:item_id].to_i
+        redirect_to root_path
+      end
     end
   end
 

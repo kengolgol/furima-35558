@@ -8,10 +8,12 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <% if @item.id == @item.buy.item_id %>
-        <div class='sold-out'>
-          <span>Sold Out!!</span>
-        </div>
+      <% if @item.buy != nil %>
+        <% if @item.id == @item.buy.item_id %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="item-price-box">
@@ -22,7 +24,7 @@
         <%= @item.delivery_charge.name %>
       </span>
     </div>
-    <% if @item.id != @item.buy.item_id %>
+    <% if @item.buy == nil %>
       <% if user_signed_in? && current_user.id == @item.user_id %>
         <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
@@ -31,7 +33,6 @@
         <%= link_to "購入画面に進む", item_buys_path(@item.id) ,class:"item-red-btn"%>
       <% end %>
     <% end %>
-
     <div class="item-explain-box">
       <span><%= @item.content %></span>
     </div>
