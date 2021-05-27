@@ -36,7 +36,6 @@ class BuysController < ApplicationController
 
   def sold_item
     if @item.buy != nil
-      binding.pry
       if user_signed_in? && @item.id == params[:item_id].to_i
         redirect_to root_path
       end
