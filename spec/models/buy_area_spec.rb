@@ -60,6 +60,11 @@ RSpec.describe BuyArea, type: :model do
         @buy_area.valid?
         expect(@buy_area.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
       end
+      it '電話番号が英数混合である場合、登録できない' do
+        @buy_area.tel = '090abcd5678'
+        @buy_area.valid?
+        expect(@buy_area.errors.full_messages).to include("Tel is invalid")
+      end
       it '購入する商品に紐づくユーザーが存在しない場合、商品の購入ができない' do
         @buy_area.user_id = nil
         @buy_area.valid?

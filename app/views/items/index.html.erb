@@ -152,11 +152,9 @@
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
             <% if item.buy != nil %>
-              <% if item.id == item.buy.item_id %>
                 <div class='sold-out'>
                   <span>Sold Out!!</span>
                 </div>
-              <% end %>
             <% end %>
           </div>
           <div class='item-info'>
